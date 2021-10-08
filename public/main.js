@@ -5,10 +5,18 @@ const getDataFromBackend = async () => {
   return data;
 };
 
-// Note that top-level await is only available in modern browsers
-// https://caniuse.com/mdn-javascript_operators_await_top_level
-const res = await getDataFromBackend();
-console.log(res);
+const container = document.getElementById('container');
+const openFormButton = document.getElementById('newUserButton');
+const closeFormButton = document.getElementById('closeFormButton');
+const addUserFormContainer = document.getElementById('addUserFormContainer');
+
+openFormButton.addEventListener('click', () => {
+  addUserFormContainer.style.display = 'flex';
+});
+
+closeFormButton.addEventListener('click', () => {
+  addUserFormContainer.style.display = 'none';
+});
 
 // Add data to HTML
 const addData = async () => {

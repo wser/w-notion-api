@@ -20,3 +20,33 @@ exports.getDatabase = async function () {
 
   return responseResults;
 };
+
+exports.newEntryToDatabase = async function (name, role) {
+  const response = await notion.pages.create({
+    parent: {
+      database_id: process.env.NOTION_API_DATABASE,
+    },
+    properties: {
+      Name: {
+        title: [
+          {
+            text: {
+              content: name,
+            },
+          },
+        ],
+      },
+      Role: {
+        rich_text: [
+          {
+            text: {
+              content: role,
+            },
+          },
+        ],
+      },
+    },
+  });
+
+  return response;
+};
