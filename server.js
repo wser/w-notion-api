@@ -7,7 +7,7 @@ const port = 8000;
 
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static('docs'));
 app.use(
   express.urlencoded({
     extended: true,
