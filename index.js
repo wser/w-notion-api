@@ -20,5 +20,3 @@ exports.getDatabase = async function () {
 
   return responseResults;
 };
-
-getDatabase();
